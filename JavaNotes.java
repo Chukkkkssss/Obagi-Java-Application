@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class JavaNotes{
 	public static void main(String[] args){}
 }		
@@ -9,6 +11,10 @@ public class JavaNotes{
 // \" : Double Quote
 // \' : Single Quote
 // \\ : Backlash
+
+//Primitive Types: ->
+
+//
 
 
 class Printmethods{
@@ -87,5 +93,40 @@ class Typecasting{
 			
 			int asciicode = (char)alpha;
 			System.out.printf("The ASCII code for \"?\" is %d%n", asciicode);
+			
+			double height = 5.9;
+			
+			int myHeight = (int)height;
+			System.out.printf("My Grand dad's height is %d",myHeight);
 	    }     
 }	
+
+class Userinput{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter your name: ");
+		String name =  input.nextLine();
+		
+		System.out.print("Enter your address: ");
+		String address =  input.nextLine();
+		
+		System.out.print("Enter your age: ");
+		byte age =  input.nextByte();
+		System.out.println();
+		
+		System.out.print("Enter your account balance: ");
+		float balance = input.nextFloat();
+		System.out.println();
+		
+		System.out.print("You do love doing business with us?(True/False): ");
+		boolean choice = input.nextBoolean();
+		System.out.println();
+
+		
+		System.out.printf("Hello %s, Welcome to my space, How are you today?%n",name);
+		System.out.printf("Your address has been Registered as: %s. %n",address);
+		System.out.printf("Age: %d years old.%n",age);
+		System.out.printf("Your new account Balance is: %c%.2f %n",'$',balance);
+		System.out.printf("%s, do you love doing business with us? %b%n",name,choice);
+	}
+}		

@@ -130,3 +130,115 @@ class Userinput{
 		System.out.printf("%s, do you love doing business with us? %b%n",name,choice);
 	}
 }		
+
+
+class NestedIfElse {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter mark: ");
+        int mark = input.nextInt();
+
+        System.out.printf("Candidate name: %s\n", name);
+        System.out.printf("Candidate mark: %d\n", mark);
+
+        if (mark >= 80) {
+            System.out.printf("Candidate Grade: %c\n", 'A');
+        } else if (mark >= 70) {
+            System.out.printf("Candidate Grade: %c\n", 'B');
+        } else if (mark >= 60) {
+            System.out.printf("Candidate Grade: %c\n", 'C');
+        } else if (mark >= 50) {
+            System.out.printf("Candidate Grade: %c\n", 'D');
+        } else if (mark >= 40) {
+            System.out.printf("Candidate Grade: %c\n", 'E');
+        } else {
+            System.out.printf("Candidate Grade: %c\n", 'F');  // Fixed 'A' -> 'F'
+        }
+
+        input.close();
+    }
+}
+	
+
+class MobileUSSD {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Display menu options
+        System.out.println("Welcome! Please enter a USSD code:");
+        System.out.println("*312# - Data Subscription");
+        System.out.println("*310# - Check Balance");
+        System.out.println("*303# - Borrow Airtime");
+
+        // Get user input
+        System.out.print("\nEnter USSD code: ");
+        String code = input.nextLine();
+
+        // Switch statement for main menu
+        switch (code) {
+            case "*312#":
+                // Data Subscription Menu
+                System.out.println("\n--- Data Subscription Plans ---");
+                System.out.println("1. 500MB for 1 day - ₦100");
+                System.out.println("2. 2GB for 7 days - ₦500");
+                System.out.println("3. 5GB for 30 days - ₦1500");
+
+                System.out.print("\nSelect a plan (1, 2, or 3): ");
+                int plan = input.nextInt();
+
+                switch (plan) {
+                    case 1:
+                        System.out.println("You subscribed to 500MB for 1 day.");
+                        break;
+                    case 2:
+                        System.out.println("You subscribed to 2GB for 7 days.");
+                        break;
+                    case 3:
+                        System.out.println("You subscribed to 5GB for 30 days.");
+                        break;
+                    default:
+                        System.out.println("Invalid selection.");
+                }
+                break;
+
+            case "*310#":
+                // Check Balance
+                System.out.println("\n Your current balance is: ₦2,350.50");
+                break;
+
+            case "*303#":
+                // Loan Menu
+                System.out.println("\n--- Borrow Airtime ---");
+                System.out.println("1. Borrow ₦100");
+                System.out.println("2. Borrow ₦500");
+                System.out.println("3. Borrow ₦1000");
+
+                System.out.print("\nSelect amount to borrow (1, 2, or 3): ");
+                int loan = input.nextInt();
+
+                switch (loan) {
+                    case 1:
+                        System.out.println("You borrowed ₦100. Repay on next recharge.");
+                        break;
+                    case 2:
+                        System.out.println("You borrowed ₦500. Repay on next recharge.");
+                        break;
+                    case 3:
+                        System.out.println("You borrowed ₦1000. Repay on next recharge.");
+                        break;
+                    default:
+                        System.out.println("Invalid selection.");
+                }
+                break;
+
+            default:
+                System.out.println("❌ Invalid USSD code entered.");
+        }
+
+        input.close(); // Close Scanner
+    }
+}

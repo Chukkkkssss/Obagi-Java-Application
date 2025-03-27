@@ -129,6 +129,52 @@ class Userinput{
 		System.out.printf("Your new account Balance is: %c%.2f %n",'$',balance);
 		System.out.printf("%s, do you love doing business with us? %b%n",name,choice);
 	}
+}
+
+class Operators {
+    public static void main(String[] args) {
+        // Assignment operator (=)
+        int num1 = 13;
+        int num2 = 5;
+
+        // ARITHMETIC OPERATORS (+, *, -, /, %)
+        int sum = num1 + num2;
+        int product = num1 * num2;
+        int difference = num1 - num2;
+        int quotient = num1 / num2;
+        double result = (double) num1 / num2;
+        int remainder = num1 % num2;
+
+        // Relational operators (>, <, >=, ==, !=)
+        boolean isLessThan = num1 < num2;
+        boolean isGreaterThan = num1 > num2;
+        boolean isGreaterThanOrEqualTo = num1 >= num2;
+        boolean isEqualTo = num1 == num2;
+        boolean isNotEqualTo = num1 != num2;
+
+        // Logical operators (&&, ||, !)
+        boolean isAndOperator = num1 > num2 && num1 >= num2;
+        boolean isOrOperator = num1 == num2 || num1 > num2;
+        boolean isNotOperator = !(num1 == num2 || num1 > num2);
+
+        // Output results
+        System.out.printf("The sum of the numbers is %d%n", sum);
+        System.out.printf("The product of the numbers is %d%n", product);
+        System.out.printf("The difference between %d and %d is %d%n", num1, num2, difference);
+        System.out.printf("The quotient of the numbers is %d%n", quotient);
+        System.out.printf("The result of the numbers is %.2f%n", result);
+        System.out.printf("The remainder is %d%n", remainder);
+        System.out.println("==========================================================");
+        System.out.printf("is %d < %d? %b%n", num1, num2, isLessThan);
+        System.out.printf("is %d > %d? %b%n", num1, num2, isGreaterThan);
+        System.out.printf("is %d >= %d? %b%n", num1, num2, isGreaterThanOrEqualTo);
+        System.out.printf("is %d == %d? %b%n", num1, num2, isEqualTo);
+        System.out.printf("is %d != %d? %b%n", num1, num2, isNotEqualTo);
+        System.out.println("==========================================================");
+        System.out.printf("is %d > %d && %d >= %d? %b%n", num1, num2, num1, num2, isAndOperator);
+        System.out.printf("is %d == %d || %d > %d? %b%n", num1, num2, num1, num2, isOrOperator);
+        System.out.printf("is !(%d == %d || %d > %d)? %b%n", num1, num2, num1, num2, isNotOperator);
+    }
 }		
 
 
@@ -236,9 +282,83 @@ class MobileUSSD {
                 break;
 
             default:
-                System.out.println("❌ Invalid USSD code entered.");
+                System.out.println("Invalid USSD code entered.");
         }
 
         input.close(); // Close Scanner
+    }
+}
+
+class PrintName {
+    public static void main(String[] args) {
+        
+        String name = "Chuks!";
+        
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(name); 
+        }
+    }
+}
+
+
+
+class Accept10Numbers {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int sum = 0;
+        double average;
+        int product = 1;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.printf("Enter num%d: ", i);
+            int num = input.nextInt();
+            sum += num;
+            product *= num;
+        }
+
+        average = (double) sum / 10;
+
+        System.out.printf("The sum of the numbers is: %d%n", sum);
+        System.out.printf("The average of the numbers is: %.2f%n", average);
+        System.out.printf("The product of the numbers is: %d%n", product);
+
+        input.close();
+    }
+}
+
+//Assignment1: write a program that would print all the even numbers from 1-20.
+
+class EvenNumbers {
+    public static void main(String[] args) {
+        System.out.println("Even numbers from 1 to 20:");
+        
+		for (int i = 2; i <= 20; i += 2) { 
+            System.out.println(i);
+        }
+    }
+}
+
+// 2: Write a program to accept 10 numbers from a user and find the sum of 6th to 8th numbers,
+// and subtract it from the sum of 4th to 9th an display result.
+
+class RandomArith {
+	public static void main(String[] args) {
+		
+        Scanner input = new Scanner(System.in);
+        int[] numbers = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            System.out.printf("Enter number %d: ", i + 1);
+            numbers[i] = input.nextInt();
+        }
+
+        int sum6to8 = numbers[5] + numbers[6] + numbers[7];
+
+        int sum4to9 = numbers[3] + numbers[4] + numbers[5] + numbers[6] + numbers[7] + numbers[8];
+
+        int result = sum4to9 - sum6to8;
+
+        System.out.println("Result: " + result);
+
     }
 }

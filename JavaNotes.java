@@ -363,3 +363,123 @@ class RandomArith {
     }
 }
 
+class ContinueStatement{
+	public static void main(String[] args){
+		
+		for(int i = 1; i<= 20; i++){
+			if(i == 15){
+				continue;
+			}	
+			System.out.printf("%d%n",i);	
+		}		
+	}		
+}			
+
+//Class: MethodsWithoutReturntype
+class MWORT{
+    public static void main(String[] args){
+	    MWORT mwrt = new MWORT();
+		mwrt.addition();
+	}
+	public void addition(){
+		int num1 = 15;
+		int num2 = 20;
+		  
+		int sum = num1 + num2;
+		  
+		System.out.printf("0Sum = %d%n",sum);
+	}	  
+}	  
+
+//Class: MethodWithReturnType
+class MWRT{
+	public static void main(String[] args){
+		MWRT mwrt = new MWRT();
+		int result = mwrt.addition(15,30);
+	}
+	public int addition(int num1, int num2){
+		int sum = num1 + num2;
+		
+		return sum;
+	}
+}
+
+//Class: Static Method Without Return Type
+class SMWORT{
+	public static void main(String[] args){
+		SMWORT.addition();
+	}
+	public static void addition(){
+		int num1 = 15;
+		int num2 = 20;
+		
+		int sum = num1 + num2;
+		System.out.printf("Sum = %d%n",sum);
+	}
+}	
+
+//Class: Static Method With Return Type
+class SMWRT{
+	public static void main(String[] args){
+		double result = SMWRT.average(70,90,50);
+		System.out.printf("Average = %f",result);
+	}
+	public static double average(int num1,int num2,int num3){
+		
+		double avg = (double)(num1 + num2 + num3)/3;
+		
+		return avg;
+	}
+}	
+
+
+class BankAccount{
+    String accountName = "Damaris";
+    String accountNumber = "1760468120";
+    double accountBalance = 1999999.99;
+
+    public static void main(String[] args) {
+        BankAccount bank = new BankAccount();
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Choose an action: ");
+        System.out.println("1. Check balance");
+        System.out.println("2. Deposit");
+        System.out.println("3. Withdraw");
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1: // Check balance
+                System.out.printf("Account balance: %.2f%n", bank.accountBalance);
+                break;
+
+            case 2: // Deposit
+                System.out.print("Enter deposit amount: ");
+                double depositAmount = scanner.nextDouble();
+                bank.deposit(depositAmount);
+                System.out.printf("Updated balance: %.2f%n", bank.accountBalance);
+                break;
+
+            case 3: // Withdraw
+                System.out.print("Enter withdrawal amount: ");
+                double withdrawalAmount = scanner.nextDouble();
+                bank.withdrawal(withdrawalAmount);
+                System.out.printf("Updated balance: %.2f%n", bank.accountBalance);
+                break;
+
+            default: // Invalid choice
+                System.out.println("Invalid choice. Please try again.");
+                break;
+        }
+
+    }
+
+    public void withdrawal(double amount) {
+        accountBalance -= amount;
+    }
+
+    public void deposit(double amount) {
+        accountBalance += amount;
+    }
+}

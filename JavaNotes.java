@@ -483,3 +483,60 @@ class BankAccount{
         accountBalance += amount;
     }
 }
+
+
+class MethodOverloading {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Calculate perimeter of different shapes");
+        System.out.println("Enter 1 to calculate perimeter of a square");
+        System.out.println("Enter 2 to calculate perimeter of a rectangle");
+        System.out.println("Enter 3 to calculate perimeter of a circle");
+        
+        System.out.print("Enter your choice: ");
+        int choice = input.nextInt();  // Fixed capitalization
+        
+        switch (choice) {
+            case 1:
+                System.out.print("Enter the length of the square: ");
+                int lengthofSquare = input.nextInt();  // Fixed capitalization
+                MethodOverloading.shape(lengthofSquare);
+                break;
+
+            case 2:
+                System.out.print("Enter the length of the rectangle: ");
+                int lengthofRectangle = input.nextInt();  // Fixed capitalization
+                
+                System.out.print("Enter the breadth of the rectangle: ");
+                int breadthofRectangle = input.nextInt();  // Fixed capitalization
+                
+                MethodOverloading.shape(lengthofRectangle, breadthofRectangle);  // Fixed variable case
+                break;
+
+            case 3:
+                System.out.print("Enter the radius of the circle: ");  // Fixed message text
+                double radiusofCircle = input.nextDouble();  // Fixed capitalization
+                MethodOverloading.shape(radiusofCircle);
+                break;
+
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+    
+    public static void shape(int length) {
+        int perimeterofSquare = 4 * length;
+        System.out.printf("Perimeter of square = %d%n", perimeterofSquare);
+    }
+    
+    public static void shape(int length, int breadth) {
+        int perimeterofRectangle = 2 * (length + breadth);
+        System.out.printf("Perimeter of rectangle = %d%n", perimeterofRectangle);
+    }
+    
+    public static void shape(double radius) {
+        double perimeterofCircle = 2 * Math.PI * radius;
+        System.out.printf("Perimeter of circle = %.2f%n", perimeterofCircle);  // Improved formatting
+    }
+}

@@ -495,28 +495,28 @@ class MethodOverloading {
         System.out.println("Enter 3 to calculate perimeter of a circle");
         
         System.out.print("Enter your choice: ");
-        int choice = input.nextInt();  // Fixed capitalization
+        int choice = input.nextInt();
         
         switch (choice) {
             case 1:
                 System.out.print("Enter the length of the square: ");
-                int lengthofSquare = input.nextInt();  // Fixed capitalization
+                int lengthofSquare = input.nextInt();
                 MethodOverloading.shape(lengthofSquare);
                 break;
 
             case 2:
                 System.out.print("Enter the length of the rectangle: ");
-                int lengthofRectangle = input.nextInt();  // Fixed capitalization
+                int lengthofRectangle = input.nextInt();
                 
                 System.out.print("Enter the breadth of the rectangle: ");
-                int breadthofRectangle = input.nextInt();  // Fixed capitalization
+                int breadthofRectangle = input.nextInt();
                 
-                MethodOverloading.shape(lengthofRectangle, breadthofRectangle);  // Fixed variable case
+                MethodOverloading.shape(lengthofRectangle, breadthofRectangle);
                 break;
 
             case 3:
-                System.out.print("Enter the radius of the circle: ");  // Fixed message text
-                double radiusofCircle = input.nextDouble();  // Fixed capitalization
+                System.out.print("Enter the radius of the circle: ");
+                double radiusofCircle = input.nextDouble();
                 MethodOverloading.shape(radiusofCircle);
                 break;
 
@@ -537,6 +537,7 @@ class MethodOverloading {
     
     public static void shape(double radius) {
         double perimeterofCircle = 2 * Math.PI * radius;
-        System.out.printf("Perimeter of circle = %.2f%n", perimeterofCircle);  // Improved formatting
+        System.out.printf("Perimeter of circle = %.2f%n", perimeterofCircle);
     }
 }
+

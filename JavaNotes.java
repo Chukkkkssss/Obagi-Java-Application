@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Random;
+import java.security.SecureRandom;
 
 public class JavaNotes{
 	public static void main(String[] args){}
@@ -541,3 +543,97 @@ class MethodOverloading {
     }
 }
 
+
+class RandomClassgen{
+	public static void main(String[] args){
+        Random random = new Random();
+		
+		boolean option = random.nextBoolean();
+		System.out.printf("Do you love java? : %b%n",option);
+		
+		int integerWithNoBound = random.nextInt(); //No bound
+		System.out.printf("Random Number: %d%n",integerWithNoBound);
+		
+		int integerWithBound = random.nextInt(2000) +1; //With bound... You add +1 so it includes 10
+		System.out.printf("Random Number: %d%n",integerWithBound);
+		
+		long longWithBound = random.nextLong(20000000);
+		System.out.printf("Random Number: %d%n",longWithBound);
+		
+		float floatWithBound = random.nextFloat(200000);
+		System.out.printf("Random Number: %.4f%n",floatWithBound);
+		
+		double doubleWithBound = random.nextDouble(200000);
+		System.out.printf("Random Number: %.4f%n",doubleWithBound);
+	}
+}
+
+class PasswordGen{
+	public static void main(String[] args){
+		int length = 25;
+		String password = generatePassword(length);
+		System.out.println("Generated Password: " + password);
+	}
+	private static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
+	private static final String DIGITS = "0123456789";
+	private static final String SPECIAL = "!@#$%^&*()_+=<>?";
+	
+	private static final String ALL_CHARS = UPPER + LOWER + DIGITS + SPECIAL;
+	private static final Random random = new Random();
+	
+	public static String generatePassword(int length){
+		StringBuilder password = new StringBuilder(length);
+		for (int i = 0; i < length; i++){
+			int index = random.nextInt(ALL_CHARS.length());
+			password.append(ALL_CHARS.charAt(index));
+		}
+		return password.toString();
+	}
+		
+}
+
+
+class Randomizer {
+    public static void main(String[] args) {
+        SecureRandom secureRandom = new SecureRandom();
+        boolean option = secureRandom.nextBoolean();
+        System.out.printf("The current President is pathetic: %b%n", option);
+		
+		int integer = secureRandom.nextInt();
+		System.out.printf("Integer 1: %d%n", integer);
+		
+		int integerWithBound = secureRandom.nextInt(80000);
+		System.out.printf("Integer 2: %d%n",integerWithBound);
+		
+		long value1 = secureRandom.nextLong();
+		System.out.printf("Integer 3: %d%n",value1);
+		
+		long value2 = secureRandom.nextLong(900_000_000_000L);
+		System.out.printf("Integer 4: %d%n",value2);
+		
+    }
+}
+
+//Classwork: Write a program to generate a num. based on the input of a user. Upper limit of the num. should be inclusive.
+
+class NumberGen {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        SecureRandom secureRandom = new SecureRandom();
+
+        System.out.print("Enter the upper limit for the random number: ");
+        long num = scanner.nextLong();
+
+        if (num <= 0) {
+            System.out.println("Number must be greater than 0");
+        } else {
+            long generated = secureRandom.nextLong(num + 1);
+
+            System.out.println("The lower limit is 0");
+            System.out.println("The upper limit is " + num);
+
+            System.out.printf("Your random number (0 to %d): %d%n", num, generated);
+        }
+    }
+}

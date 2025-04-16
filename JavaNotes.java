@@ -637,3 +637,28 @@ class NumberGen {
         }
     }
 }
+
+//Assignment: Generate 10 random account numbers.
+
+
+class BANGenerator {
+
+    public static void main(String[] args) {
+        String accountNum = generateAccountNum(10);
+        System.out.println("Generated Bank Account Number: " + accountNum);
+    }
+
+    public static String generateAccountNum(int length) {
+        SecureRandom secureRandom = new SecureRandom();
+        StringBuilder accountNum = new StringBuilder();
+
+        // Make sure the first digit is not zero
+        accountNum.append(secureRandom.nextInt(9) + 1);
+
+        for (int i = 1; i < length; i++) {
+            accountNum.append(secureRandom.nextInt(10));
+        }
+
+        return accountNum.toString();
+    }
+}
